@@ -1,0 +1,29 @@
+{
+  "name": "criticalview360",
+  "version": "1.0.0",
+  "description": "A SaaS application for hazard analysis using the Bow Tie methodology.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duds/CriticalView360.git"
+  },
+  "keywords": [
+    "critical controls",
+    "risk management",
+    "hazard analysis",
+    "bow tie methodology",
+    "SaaS",
+    "web",
+    "application",
+    "GPT API integration"
+  ],
+  "author": "Dale Rogers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Duds/CriticalView360/issues"
+  },
+  "homepage": "https://github.com/Duds/CriticalView360#readme"
+}
