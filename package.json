@@ -25,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/Duds/CriticalView360/issues"
   },
-  "homepage": "https://github.com/Duds/CriticalView360#readme"
+  "homepage": "https://github.com/Duds/CriticalView360#readme",
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.0",
+    "firebase": "^9.22.0"
+  }
 }
