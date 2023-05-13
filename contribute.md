@@ -4,7 +4,7 @@ Thank you for considering contributing to the CriticalView360 project! We apprec
 
 ## Code of Conduct
 
-Before getting started, please review and adhere to our [Code of Conduct](conduct.md). We expect all contributors to follow these guidelines to ensure a respectful and inclusive environment for everyone.
+Before getting started, please review and adhere to our [Code of Conduct](code_of_conduct.md). We expect all contributors to follow these guidelines to ensure a respectful and inclusive environment for everyone.
 
 ## Ways to Contribute
 

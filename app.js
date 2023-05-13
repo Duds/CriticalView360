@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import Register from './register';
+import Login from './login';
+import Dashboard from './dashboard';
+import NewCard from './newCard';
+import Review from './review';
+import Visualise from './visualise';
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // registration logic here
-  };
-
+function App() {
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        label="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Button type="submit">Register</Button>
-    </form>
+    <Router>
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/new-card" component={NewCard} />
+        <Route path="/review" component={Review} />
+        <Route path="/visualise" component={Visualise} />
+        <Route path="/" exact component={Login} />
+      </Switch>
+    </Router>
   );
-};
+}
 
-export default Register;
+export default App;
