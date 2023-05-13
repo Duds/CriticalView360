@@ -4,15 +4,15 @@ Thank you for considering contributing to the CriticalView360 project! We apprec
 
 ## Code of Conduct
 
-Before getting started, please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to follow these guidelines to ensure a respectful and inclusive environment for everyone.
+Before getting started, please review and adhere to our [Code of Conduct](conduct.md). We expect all contributors to follow these guidelines to ensure a respectful and inclusive environment for everyone.
 
 ## Ways to Contribute
 
 There are several ways in which you can contribute to CriticalView360:
 
-1. **Bug Reports**: If you encounter any bugs or issues while using CriticalView360, please [open an issue](https://github.com/your-username/CriticalView360/issues) and provide a detailed description of the problem. Include steps to reproduce the issue, expected behavior, and any relevant error messages.
+1. **Bug Reports**: If you encounter any bugs or issues while using CriticalView360, please [open an issue](https://github.com/Duds/CriticalView360/issues) and provide a detailed description of the problem. Include steps to reproduce the issue, expected behavior, and any relevant error messages.
 
-2. **Feature Requests**: If you have ideas for new features or improvements, we encourage you to share them with us. [Open an issue](https://github.com/your-username/CriticalView360/issues) and describe the feature or enhancement you would like to see. Be sure to provide a clear rationale and any additional details that can help us understand your suggestion.
+2. **Feature Requests**: If you have ideas for new features or improvements, we encourage you to share them with us. [Open an issue](https://github.com/Duds/CriticalView360/issues) and describe the feature or enhancement you would like to see. Be sure to provide a clear rationale and any additional details that can help us understand your suggestion.
 
 3. **Pull Requests**: If you have code contributions or bug fixes, you can submit a pull request. Here are the steps to follow:
    - Fork the repository.
@@ -34,7 +34,7 @@ To maintain a consistent codebase, please follow these code style and convention
 
 ## Licensing
 
-By contributing to this project, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to this project, you agree that your contributions will be licensed under the [MIT License](license.md).
 
 ## Acknowledgments
 
