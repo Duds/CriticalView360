@@ -32,15 +32,15 @@ For detailed installation and configuration instructions, please refer to the [I
 
 ## Contributing
 
-We welcome contributions from the community! If you would like to contribute to CriticalView360, please follow our [Contribution Guidelines](CONTRIBUTING.md) for instructions on how to submit pull requests, report issues, and more.
+We welcome contributions from the community! If you would like to contribute to CriticalView360, please follow our [Contribution Guidelines](contributing.md) for instructions on how to submit pull requests, report issues, and more.
 
 ## License
 
-CriticalView360 is licensed under the [MIT License](LICENSE).
+CriticalView360 is licensed under the [MIT License](license.md).
 
 ## Support
 
-If you encounter any issues or have any questions or suggestions, please [open an issue](https://github.com/your-username/CriticalView360/issues) on this repository. Our team will be happy to assist you.
+If you encounter any issues or have any questions or suggestions, please [open an issue](https://github.com/Duds/CriticalView360/issues) on this repository. Our team will be happy to assist you.
 
 ---
 
