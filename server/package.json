@@ -2,7 +2,7 @@
   "name": "criticalview360",
   "version": "1.0.0",
   "description": "A SaaS application for hazard analysis using the Bow Tie methodology.",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "nodemon server.js"
   },  
