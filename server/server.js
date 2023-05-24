@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
-
+const userRoutes = require('./routes/user');
 const dbURI = 'mongodb://Admin:P9g3xv1991!@localhost:27017/CriticalView360';
 
 mongoose.connect(dbURI, {
@@ -23,9 +23,12 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
-
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Add this line
+app.use(express.json()); // To parse JSON bodies
+
+// Use routes
+app.use('/api/user', userRoutes);
 
 // Express will serve up production assets
 app.use(express.static(path.join(__dirname, '../client/build')));

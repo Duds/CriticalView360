@@ -1,31 +1,9 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import express from 'express';
+import { createNewCard, getAllCards } from '../controllers/cardController.js';
 
-const NewCard = () => {
-  const [hazard, setHazard] = useState('');
-  const history = useHistory();
+const router = express.Router();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // TODO: Send the hazard to the GPT API and save the response in the database
-    // After the data is saved, navigate to the review page
-    history.push('/review');
-  };
+router.post('/', createNewCard);
+router.get('/', getAllCards);
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Hazard/Risk:
-        <input
-          type="text"
-          value={hazard}
-          onChange={(e) => setHazard(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
-
-export default NewCard;
+export default router;
