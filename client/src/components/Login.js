@@ -1,16 +1,21 @@
-// Login.js
-import { register } from '../firebase';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../firebase';
 import React, { useState } from 'react';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate(); // Call useNavigate here
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = credentials;
-    const success = await register({ email, password });
-    setMessage(success ? 'Registration successful!' : 'Registration failed. Please try again.');
+    const success = await login({ email, password });
+    setMessage(success ? 'Login successful!' : 'Login failed. Please try again.');
+  
+    if (success) {
+      navigate('/dashboard'); // Use navigate here
+    }
   };
 
   const handleChange = (e) => {
@@ -39,7 +44,7 @@ const Login = () => {
         placeholder="Password"
         required
       />
-      <button type="submit">Register</button>
+      <button type="submit">Login</button>
       {message && <p>{message}</p>}
     </form>
   );
