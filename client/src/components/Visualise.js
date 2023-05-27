@@ -1,1 +1,11 @@
-// TODO: Holding place, need to write the Visualise.js code later.
+import React from 'react';
+
+function Visualise() {
+  return (
+    <div>
+      {/* Your component code here */}
+    </div>
+  );
+}
+
+export default Visualise;

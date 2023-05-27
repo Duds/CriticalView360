@@ -1,3 +1,4 @@
+import { register, login } from '../firebase';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -7,9 +8,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { email, password };
-    await axios.post('/api/user/login', user);
-  };
+    const success = await login({ email, password });
+    // TODO: Handle login success or failure
+  };  
 
   return (
     <form onSubmit={handleSubmit}>

@@ -1,3 +1,4 @@
+import { register, login } from '../firebase';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -9,14 +10,9 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newUser = { username, email, password };
-    try {
-      await axios.post('/api/user/register', newUser);
-      setMessage('Registration successful!');
-    } catch (error) {
-      setMessage('Registration failed. Please try again.');
-    }
-  };
+    const success = await register({ email, password });
+    setMessage(success ? 'Registration successful!' : 'Registration failed. Please try again.');
+  };  
 
   return (
     <form onSubmit={handleSubmit}>

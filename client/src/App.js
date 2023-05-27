@@ -1,15 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { auth } from './firebase';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import './App.css';
 
 import Register from './components/Register';
 import Login from './components/Login';
-// TODO: import Dashboard from './components/Dashboard';
-// TODO: import NewCard from './components/NewCard';
-// TODO: import Review from './components/Review';
-// TODO: import Visualise from './components/Visualise';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const logout = () => {
+    signOut(auth).then(() => {
+      window.location.href = '/login';
+    });
+  };
+
   return (
     <Router>
       <div className="App">
@@ -19,16 +33,18 @@ function App() {
               <Link to="/register">Register</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              {user ? (
+                <button onClick={logout}>Logout</button>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </li>
-            {/* Add other navigation links here */}
           </ul>
         </nav>
 
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          {/* Add other routes here */}
         </Routes>
       </div>
     </Router>
