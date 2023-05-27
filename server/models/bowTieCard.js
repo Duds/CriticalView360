@@ -1,4 +1,4 @@
-// bowTieCard.js
+// bowTieCards.js
 const mongoose = require('mongoose');
 
 const bowTieCardSchema = new mongoose.Schema({
@@ -27,7 +27,11 @@ const bowTieCardSchema = new mongoose.Schema({
       user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     }
   ],
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  lastUpdated: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 module.exports = mongoose.model('BowTieCard', bowTieCardSchema);

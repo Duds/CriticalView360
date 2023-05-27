@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
 const dbURI = 'mongodb://Admin:P9g3xv1991!@localhost:27017/CriticalView360';
+const bowTieCardRoutes = require('./routes/bowTieCards');
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
@@ -29,6 +30,7 @@ app.use(express.json()); // To parse JSON bodies
 
 // Use routes
 app.use('/api/user', userRoutes);
+app.use('/api/bowtiecards', bowTieCardRoutes);
 
 // Express will serve up production assets
 app.use(express.static(path.join(__dirname, '../client/build')));

@@ -1,54 +1,65 @@
-const User = require('../models/user');
-const bcrypt = require('bcrypt');
+const path = require('path');
+const express = require('express');
+const mongoose = require('mongoose');
+const userRoutes = require('./routes/user');
+const userController = require('./controllers/userController');
+const dbURI = 'mongodb://Admin:P9g3xv1991!@localhost:27017/CriticalView360';
 
-const registerUser = async (req, res) => {
-  const { username, email, password } = req.body;
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB Connected...'))
+.catch(err => console.log(err));
 
-  try {
-    const existingUser = await User.findOne({ email });
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose connected to ' + dbURI);
+});
+  
+mongoose.connection.on('error',function (err) {
+    console.log('Mongoose connection error: ' + err);
+});
+  
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose disconnected');
+});
 
-    if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+const app = express();
+const port = process.env.PORT || 3000; // Add this line
+app.use(express.json()); // To parse JSON bodies
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+// Use routes
+app.use('/api/user', userRoutes);
+app.use('/api/user', userController);
 
-    const user = new User({
-      username,
-      email,
-      password: hashedPassword,
-    });
+// Express will serve up production assets
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-    await user.save();
-
-    res.status(201).json({ message: "User registered successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+// Express will serve up the front-end index.html file if it doesn't recognize the route
+app.get('*', function (req, res, next) {
+  if (req.path.startsWith('/api')) {
+    // It's an API request, skip this route
+    next();
+  } else {
+    // It's not an API request, send the React app
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   }
-};
+});
 
-const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+const server = app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+});
 
-  try {
-    const user = await User.findOne({ email });
+// Listen for termination signals
+process.on('SIGINT', () => {
+  console.log('Stopping server gracefully...');
 
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
+  // Perform cleanup tasks here
+  // For example, closing database connections or releasing resources
 
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials" });
-    }
-
-    // TODO: Generate and return a JWT token for authentication
-
-    res.status(200).json({ message: "Login successful" });
-  } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
-  }
-};
-
-module.exports = { registerUser, loginUser };
+  // Close the server
+  server.close(() => {
+    console.log('Server stopped.');
+    process.exit(0);
+  });
+});

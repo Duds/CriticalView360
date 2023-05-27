@@ -6,6 +6,13 @@ import './App.css';
 
 import Register from './components/Register';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import NewCard from './components/NewCard';
+import Review from './components/Review';
+import Visualise from './components/Visualise';
+import NotFound from './components/NotFound';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,6 +52,13 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/newCard" element={<NewCard />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/visualise" element={<Visualise />} />
+          <Route path="*" element={<NotFound />} /> 
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </div>
     </Router>
