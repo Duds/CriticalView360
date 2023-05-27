@@ -1,22 +1,46 @@
-import { register, login } from '../firebase';
+// Login.js
+import { register } from '../firebase';
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [message, setMessage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login({ email, password });
-    // TODO: Handle login success or failure
-  };  
+    const { email, password } = credentials;
+    const success = await register({ email, password });
+    setMessage(success ? 'Registration successful!' : 'Registration failed. Please try again.');
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">Login</button>
+      <input
+        type="email"
+        name="email"
+        value={credentials.email}
+        onChange={handleChange}
+        placeholder="Email"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        value={credentials.password}
+        onChange={handleChange}
+        placeholder="Password"
+        required
+      />
+      <button type="submit">Register</button>
+      {message && <p>{message}</p>}
     </form>
   );
 };
