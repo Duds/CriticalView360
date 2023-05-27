@@ -5,11 +5,17 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = { username, email, password };
-    await axios.post('/api/user/register', newUser);
+    try {
+      await axios.post('/api/user/register', newUser);
+      setMessage('Registration successful!');
+    } catch (error) {
+      setMessage('Registration failed. Please try again.');
+    }
   };
 
   return (
@@ -18,9 +24,9 @@ const Register = () => {
       <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
       <button type="submit">Register</button>
+      {message && <p>{message}</p>}
     </form>
   );
 };
 
 export default Register;
-

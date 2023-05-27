@@ -34,8 +34,14 @@ app.use('/api/user', userRoutes);
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Express will serve up the front-end index.html file if it doesn't recognize the route
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+app.get('*', function (req, res, next) {
+  if (req.path.startsWith('/api')) {
+    // It's an API request, skip this route
+    next();
+  } else {
+    // It's not an API request, send the React app
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  }
 });
 
 const server = app.listen(port, () => {

@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 
 import Register from './components/Register';
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import NewCard from './components/NewCard';
-import Review from './components/Review';
-import Visualise from './components/Visualise';
+// TODO: import Dashboard from './components/Dashboard';
+// TODO: import NewCard from './components/NewCard';
+// TODO: import Review from './components/Review';
+// TODO: import Visualise from './components/Visualise';
 
 function App() {
   return (
@@ -25,11 +25,11 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           {/* Add other routes here */}
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
