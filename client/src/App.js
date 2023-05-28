@@ -12,7 +12,7 @@ import NotFound from './components/NotFound';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>

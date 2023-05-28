@@ -72,21 +72,12 @@ body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
 :root {
   /* Day Scheme */
-  --primary-color-day: #FFFFFF;
-  --secondary-color-day: #CCCCCC;
-  --tertiary-color-day: #999999;
-  --text-color-day:#666666;
-
-  /* Night Scheme */
-  --primary-color-night: #000000;
-  --secondary-color-night: #333333;
-  --tertiary-color-night: #666666;
-  --text-color-night:#ffffff;
-
+  --primary-color: #FFFFFF;
+  --secondary-color: #CCCCCC;
+  --tertiary-color: #999999;
+  --text-color: #333333;
 
   /* Accent Color */
   --accent-color: #5C41BF;
@@ -102,8 +93,8 @@ body {
 
 body {
   font-family: var(--body-font);
-  color: var(--text-color-day);
-  background-color: var(--primary-color-night);
+  color: var(--text-color);
+  background-color: var(--primary-color);
 }
 
 h1,
@@ -119,19 +110,19 @@ h6 {
 button {
   border: 1px solid var(--accent-color);
   background-color: transparent;
-  color: var(--secondary-accent-color);
+  color: var(--text-color);
   padding: var(--spacing);
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--secondary-color-day);
+  background-color: var(--secondary-color);
 }
 
 input,
 textarea,
 select {
-  border: 1px solid var(--secondary-color-day);
+  border: 1px solid var(--secondary-color);
   padding: var(--spacing);
 }
 
@@ -141,13 +132,13 @@ select {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: var(--primary-color-night);
-  color: var(--primary-color-day);
+  background-color: var(--primary-color);
+  color: var(--text-color);
   padding: var(--spacing);
 }
 
 .card {
-  border: 1px solid var(--secondary-color-day);
+  border: 1px solid var(--secondary-color);
   padding: var(--spacing);
   margin-bottom: var(--spacing);
 }
@@ -166,7 +157,7 @@ select {
   align-items: center;
   justify-content: center;
   padding: var(--spacing);
-  background-color: var(--primary-color-day);
+  background-color: var(--primary-color);
 }
 
 .right {
@@ -212,7 +203,7 @@ select {
 .footer {
   text-align: center;
   padding: var(--spacing);
-  background-color: var(--primary-color-day);
+  background-color: var(--primary-color);
   position: absolute;
   bottom: 0px;
   left: 10px;
@@ -241,7 +232,7 @@ select {
   align-items: center;
   justify-content: center;
   padding: var(--spacing);
-  background-color: var(--primary-color-day);
+  background-color: var(--primary-color);
 }
 
 .register-container .header {
@@ -266,10 +257,9 @@ select {
 .register-container .form h3 {
   /* Add styles for the Register heading */
   font-size: 20px;
-  color: var(--text-color-day);
+  color: var(--text-color);
   margin-bottom: 10px;
 }
-
 
 .register-container .form input {
   width: 100%;
@@ -287,8 +277,59 @@ select {
 .register-container .footer {
   text-align: center;
   padding: var(--spacing);
-  background-color: var(--primary-color-day);
+  background-color: var(--primary-color);
   position: absolute;
   bottom: 0px;
   left: 10px;
+}
+/* Add styles for the Landing page */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #5C41BF;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8C7EBF;
+}
+
+.latest-posts,
+.related-case-studies {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
 }
