@@ -1,22 +1,40 @@
-// Header.js
-import React from 'react';
+import React, { useEffect, useState } from 'react'; // Import useEffect and useState
 import { Link } from 'react-router-dom';
+import { auth } from '../firebase'; // Import auth from firebase
+import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import onAuthStateChanged and signOut from firebase/auth
 
-const Header = () => {
+const Header = () => { // Wrap your code inside a functional component
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const logout = () => {
+    signOut(auth).then(() => {
+      window.location.href = '/login';
+    });
+  };
+
   return (
-    <header>
-      <div>
-        <Link to="/">
-           <img src="/logo.svg" alt="Logo" />
-        </Link>
-      </div>
       <nav>
         <ul>
-          <li><Link to="/login">Log in</Link></li>
-          <li><Link to="/signup">Sign up</Link></li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+          <li>
+            {user ? (
+              <button onClick={logout}>Logout</button>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+          </li>
         </ul>
       </nav>
-    </header>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Footer from './Footer';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
@@ -23,12 +24,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <header>
-        <div>Logo</div>
-        <div>{userData ? userData.name : 'User'}</div>
-      </header>
-      
+    <div>      
       <main>
         <h1>Welcome, {userData ? userData.name : 'User'}!</h1>
         <button>Create New Bow Tie Card</button>
@@ -55,10 +51,7 @@ const Dashboard = () => {
         </nav>
       </aside>
       
-      <footer>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms-of-service">Terms of Service</a>
-      </footer>
+      <Footer />
     </div>
   );
 };

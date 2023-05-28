@@ -14,6 +14,7 @@ const Register = () => {
   };  
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
       <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
@@ -21,6 +22,13 @@ const Register = () => {
       <button type="submit">Register</button>
       {message && <p>{message}</p>}
     </form>
+
+    <footer>
+    <div className="container">
+      <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </div>
+    </footer>
+    </>
   );
 };
 
