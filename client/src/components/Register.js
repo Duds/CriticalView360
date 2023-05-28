@@ -11,24 +11,52 @@ const Register = () => {
     e.preventDefault();
     const success = await register({ email, password });
     setMessage(success ? 'Registration successful!' : 'Registration failed. Please try again.');
-  };  
+  };
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">Register</button>
-      {message && <p>{message}</p>}
-    </form>
-
-    <footer>
-    <div className="container">
-      <p>&copy; 2023 Your Company. All rights reserved.</p>
+    <div className="register-container">
+      <div className="left">
+        <div className="header">
+          <img className="logo" src="./logo.png" alt="Logo" />
+        </div>
+        <div className="form">
+          <h3>Name</h3>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your display name here..."
+              required
+            />
+          <h3>Email</h3>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your Email here..."
+              required
+            />
+            <h3>Password</h3>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter a password here..."
+              required
+            />
+            <button type="submit">Register</button>
+            {message && <p>{message}</p>}
+          </form>
+        </div>
+        <footer className="footer">
+          <div className="container">
+            <p>&copy; 2023 CriticaView360. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+      <div className="right"></div>
     </div>
-    </footer>
-    </>
   );
 };
 

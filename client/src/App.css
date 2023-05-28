@@ -227,3 +227,64 @@ select {
     display: none;
   }
 }
+
+/* New CSS for the Register form */
+.register-container {
+  display: flex;
+  height: 100vh;
+}
+
+.register-container .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color-day);
+}
+
+.register-container .header {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.register-container .logo {
+  width: 150px;
+  height: 75px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+
+.register-container .form {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the form */
+}
+
+.register-container .form h3 {
+  /* Add styles for the Register heading */
+}
+
+.register-container .form input {
+  width: 100%;
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.register-container .form button {
+  width: 100%;
+  padding: var(--spacing);
+  cursor: pointer;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the submit button */
+}
+
+.register-container .footer {
+  text-align: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color-day);
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
