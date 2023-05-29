@@ -1,3 +1,5 @@
+// Register.js
+
 import { register } from '../firebase';
 import React, { useState } from 'react';
 
@@ -9,9 +11,13 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await register({ email, password });
-    setMessage(success ? 'Registration successful!' : 'Registration failed. Please try again.');
-  };
+    const success = await register({ username, email, password });
+    if (success) {
+      setMessage('Registration successful!');
+    } else {
+      setMessage('Registration failed. Please try again.');
+    }
+  };  
 
   return (
     <div className="register-container">
@@ -22,13 +28,16 @@ const Register = () => {
         <div className="form">
           <h3>Name</h3>
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your display name here..."
-              required
-            />
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            name="username" // Add the name attribute
+            placeholder="Enter your display name here..."
+            required
+          />
+
+
           <h3>Email</h3>
             <input
               type="email"
@@ -46,7 +55,7 @@ const Register = () => {
               required
             />
             <button type="submit">Register</button>
-            {message && <p>{message}</p>}
+            {message && <p className="message">{message}</p>}
           </form>
         </div>
         <footer className="footer">

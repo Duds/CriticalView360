@@ -1,30 +1,36 @@
+// authentication.js
+
 const User = require('../models/user');
-const bcrypt = require('bcrypt');
+
 
 const registerUser = async (req, res) => {
-  const { username, email, password } = req.body;
+  console.log('Received user registration data:', req.body);
+  const { username, email, uid } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "Email address is already in use" });
     }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = new User({
       username,
       email,
-      password: hashedPassword,
+      uid, // Store the user's Firebase Auth UID
     });
 
     await user.save();
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
+    console.error('User Registration Error:', error);
     res.status(500).json({ message: "Something went wrong" });
   }
+};
+
+module.exports = {
+  registerUser,
 };
 
 const loginUser = async (req, res) => {
@@ -37,13 +43,9 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "User not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-
-    // TODO: Generate and return a JWT token for authentication
 
     res.status(200).json({ message: "Login successful" });
   } catch (error) {

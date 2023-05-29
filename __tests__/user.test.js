@@ -3,7 +3,7 @@ const express = require('express');
 const userRoutes = require('../server/routes/user');
 const mongoose = require('mongoose');
 const User = require('../server/models/user');
-const bcrypt = require('bcrypt');
+
 
 const app = express();
 app.use(express.json());
@@ -42,7 +42,6 @@ describe('POST /register', () => {
 describe('POST /login', () => {
   it('should login an existing user', async () => {
     const password = 'testpassword';
-    const hashedPassword = await bcrypt.hash(password, 10);
     await new User({
       username: 'testuser',
       email: 'test@test.com',

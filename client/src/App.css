@@ -288,3 +288,10 @@ select {
   bottom: 0px;
   left: 10px;
 }
+
+/* other CSS */
+.message {
+  color: green; /* Customize the color of the message */
+  margin-top: 10px; /* Add spacing from the input fields */
+}
+

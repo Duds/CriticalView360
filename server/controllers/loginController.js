@@ -1,6 +1,4 @@
 const User = require('../models/user');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -11,8 +9,6 @@ const loginUser = async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
-
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: "Invalid credentials" });

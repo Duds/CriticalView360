@@ -1,6 +1,9 @@
+// firebase.js
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import axios from 'axios'; // Import axios
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -15,15 +18,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 export { auth };
 
-export const register = async ({ email, password }) => {
+export const register = async ({ username, email, password }) => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    // After successful registration with Firebase Auth, create a new user in MongoDB
+    await axios.post('http://localhost:3000/api/user/register', { username, email, uid: userCredential.user.uid });
     return true;
   } catch (error) {
     console.error('Registration Error:', error);
