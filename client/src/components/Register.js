@@ -1,7 +1,12 @@
-// Register.js
-
-import { register } from '../firebase';
 import React, { useState } from 'react';
+import { register } from '../firebase';
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Grid,
+} from '@mui/material';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -17,55 +22,56 @@ const Register = () => {
     } else {
       setMessage('Registration failed. Please try again.');
     }
-  };  
+  };
 
   return (
-    <div className="register-container">
-      <div className="left">
-        <div className="header">
-          <img className="logo" src="./logo.png" alt="Logo" />
-        </div>
-        <div className="form">
-          <h3>Name</h3>
+    <Container maxWidth="md">
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography variant="h3" component="h1" align="center">
+            Register
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            name="username" // Add the name attribute
-            placeholder="Enter your display name here..."
-            required
-          />
-
-
-          <h3>Email</h3>
-            <input
+            <TextField
+              label="Name"
+              fullWidth
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              name="username"
+              placeholder="Enter your display name here..."
+              required
+            />
+            <TextField
               type="email"
+              label="Email"
+              fullWidth
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your Email here..."
               required
             />
-            <h3>Password</h3>
-            <input
+            <TextField
               type="password"
+              label="Password"
+              fullWidth
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter a password here..."
               required
             />
-            <button type="submit">Register</button>
-            {message && <p className="message">{message}</p>}
+            <Button type="submit" variant="contained" color="primary">
+              Register
+            </Button>
+            {message && <Typography className="message">{message}</Typography>}
           </form>
-        </div>
-        <footer className="footer">
-          <div className="container">
-            <p>&copy; 2023 CriticaView360. All rights reserved.</p>
-          </div>
-        </footer>
-      </div>
-      <div className="right"></div>
-    </div>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {/* Additional content for the right side, if needed */}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Typography, Button, Container, Grid } from '@mui/material';
+import Header from './Header';
 import Footer from './Footer';
 
 const Dashboard = () => {
@@ -24,33 +26,29 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>      
-      <main>
-        <h1>Welcome, {userData ? userData.name : 'User'}!</h1>
-        <button>Create New Bow Tie Card</button>
-        <div>
-          <h2>Your Bow Tie Cards</h2>
-          {cards.map(card => (
-            <div key={card.id}>
-              <h3>{card.name}</h3>
-              <p>Last updated: {card.lastUpdated}</p>
-            </div>
-          ))}
-        </div>
-      </main>
-      
-      <aside>
-        <nav>
-          <ul>
-            <li>Dashboard</li>
-            <li>My Bow Tie Cards</li>
-            <li>Shared with me</li>
-            <li>Templates</li>
-            <li>Help & Support</li>
-          </ul>
-        </nav>
-      </aside>
-      
+    <div>
+      <Header />
+      <Container maxWidth="lg">
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h1" component="h1" align="center" gutterBottom>
+              Welcome, {userData ? userData.name : 'User'}!
+            </Typography>
+            <Button variant="contained" color="primary">Create New Bow Tie Card</Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h2" component="h2" gutterBottom>
+              Your Bow Tie Cards
+            </Typography>
+            {cards.map(card => (
+              <div key={card.id}>
+                <Typography variant="h3" component="h3" gutterBottom>{card.name}</Typography>
+                <Typography variant="body1" component="p">Last updated: {card.lastUpdated}</Typography>
+              </div>
+            ))}
+          </Grid>
+        </Grid>
+      </Container>
       <Footer />
     </div>
   );

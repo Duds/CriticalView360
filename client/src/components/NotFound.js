@@ -1,12 +1,21 @@
-// components/NotFound.js
-
 import React from 'react';
+import { Typography, Container } from '@mui/material';
+import Header from './Header';
+import Footer from './Footer';
 
 const NotFound = () => {
   return (
     <div>
-      <h2>404 - Not Found</h2>
-      <p>The page you're looking for does not exist.</p>
+      <Header />
+      <Container maxWidth="md">
+        <Typography variant="h2" component="h2" align="center" gutterBottom>
+          404 - Not Found
+        </Typography>
+        <Typography variant="body1" align="center">
+          The page you're looking for does not exist.
+        </Typography>
+      </Container>
+      <Footer />
     </div>
   );
 };

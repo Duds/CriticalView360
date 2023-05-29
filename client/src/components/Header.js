@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'; // Import useEffect and useState
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../firebase'; // Import auth from firebase
-import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import onAuthStateChanged and signOut from firebase/auth
+import { auth } from '../firebase';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { AppBar, Toolbar, Button } from '@mui/material';
 
-const Header = () => { // Wrap your code inside a functional component
+const Header = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -21,20 +22,28 @@ const Header = () => { // Wrap your code inside a functional component
   };
 
   return (
-      <nav>
-        <ul>
+    <AppBar position="static">
+      <Toolbar>
+        <ul className="nav-list">
           <li>
-            <Link to="/register">Register</Link>
+            <Button component={Link} to="/register" color="inherit">
+              Register
+            </Button>
           </li>
           <li>
             {user ? (
-              <button onClick={logout}>Logout</button>
+              <Button onClick={logout} color="inherit">
+                Logout
+              </Button>
             ) : (
-              <Link to="/login">Login</Link>
+              <Button component={Link} to="/login" color="inherit">
+                Login
+              </Button>
             )}
           </li>
         </ul>
-      </nav>
+      </Toolbar>
+    </AppBar>
   );
 };
 
