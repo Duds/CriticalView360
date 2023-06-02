@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { AppBar, Toolbar, Button } from '@mui/material';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 
 const Header = () => {
   const [user, setUser] = useState(null);
@@ -24,24 +25,26 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <ul className="nav-list">
-          <li>
+        <Logo style={{ height: '30px', marginRight: '10px' }} />
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            CriticalView360
+          </Link>
+        </Typography>
+        {user ? (
+          <Button onClick={logout} color="inherit">
+            Logout
+          </Button>
+        ) : (
+          <>
             <Button component={Link} to="/register" color="inherit">
               Register
             </Button>
-          </li>
-          <li>
-            {user ? (
-              <Button onClick={logout} color="inherit">
-                Logout
-              </Button>
-            ) : (
-              <Button component={Link} to="/login" color="inherit">
-                Login
-              </Button>
-            )}
-          </li>
-        </ul>
+            <Button component={Link} to="/login" color="inherit">
+              Login
+            </Button>
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );

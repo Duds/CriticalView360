@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Typography } from '@mui/material';
 import { auth } from '../firebase';
-import { onAuthStateChanged } from 'firebase/auth';
 import Header from './Header';
 import Footer from './Footer';
 
 const Landing = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+      setUser(firebaseUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const caseStudies = [
     {
       id: 1,
@@ -42,8 +51,6 @@ const Landing = () => {
       content: 'Vestibulum faucibus dolor sit amet magna pulvinar, in cursus mi tempus. Nam consectetur, erat ut elementum ultrices, justo turpis fermentum nulla, sed rhoncus enim tortor sit amet justo.',
     },
   ];
-
-  const user = auth.currentUser;
 
   return (
     <div className="landing-container">
