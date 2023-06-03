@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { AppRegistration } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { green, red } from '@mui/material/colors';
 
 const defaultTheme = createTheme();
 
@@ -23,9 +24,9 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await register({ username, email, password });
-    if (success) {
+    if (await register({ username, email, password })) {
       setMessage('Registration successful!');
+      window.location.href = '/dashboard'; // Redirect to /dashboard
     } else {
       setMessage('Registration failed. Please try again.');
     }
@@ -91,13 +92,16 @@ const Register = () => {
                   </Button>
                 </Grid>
               </Grid>
-              {message && (
-                <Grid item xs={12}>
-                  <Typography color="error" variant="body2">
-                    {message}
-                  </Typography>
-                </Grid>
-              )}
+                {message && (
+                  <Grid item xs={12}>
+                    <Typography
+                      color={message.includes('successful') ? green[500] : red[500]}
+                      variant="body2"
+                    >
+                      {message}
+                    </Typography>
+                  </Grid>
+                )}
             </Grid>
           </Box>
           <Grid item xs={12} md={6}>
