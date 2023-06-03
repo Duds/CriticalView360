@@ -2,16 +2,16 @@
 
 **User stories:**
 
-1. As a new user, I want to be able to create an account, so that I can access the app.
-2. As a registered user, I want to be able to log in, so that I can access my personalized content.
+1. ~~As a new user, I want to be able to create an account, so that I can access the app.~~
+2. ~~As a registered user, I want to be able to log in, so that I can access my personalized content.~~
 3. As a user, I want to be able to reset my password, so that I can regain access to my account if needed.
 4. As a user, I want to be able to update my profile information, so that I can keep my account details up to date.
 5. As a user, I want to be able to log out, so that I can securely end my session.
 
 **Acceptance criteria:**
 
-1. Given I am a new user, when I navigate to the registration page and provide valid registration details, then I should be able to create an account successfully.
-2. Given I am a registered user, when I navigate to the login page and enter my valid credentials, then I should be able to log in and access my personalized dashboard.
+1. ~~Given I am a new user, when I navigate to the registration page and provide valid registration details, then I should be able to create an account successfully.~~
+2. ~~Given I am a registered user, when I navigate to the login page and enter my valid credentials, then I should be able to log in and access my personalized dashboard.~~
 3. Given I am a registered user, when I forget my password and click on the "Forgot Password" link, then I should receive an email with instructions to reset my password.
 4. Given I am a logged-in user, when I navigate to the profile page and update my information, then the changes should be saved and reflected in my account details.
 5. Given I am a logged-in user, when I click on the "Log Out" button, then I should be logged out and redirected to the login page.

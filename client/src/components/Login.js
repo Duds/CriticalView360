@@ -9,9 +9,10 @@ import {
   Grid,
   Box,
   Avatar,
-  FormControlLabel,
   Link,
+  Snackbar,
 } from '@mui/material';
+import { Alert } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,23 +21,39 @@ const defaultTheme = createTheme();
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('success');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = credentials;
+
+    if (!email || !password) {
+      setMessage('Please enter your email and password.');
+      setMessageType('error');
+      return;
+    }
+
+    setLoading(true);
+
     try {
       const success = await login({ email, password });
       if (success) {
         setMessage('Login successful!');
-        navigate('/dashboard');
+        setMessageType('success');
+        navigate('/dashboard'); // Replace with the desired page
       } else {
         setMessage('Login failed. Please try again.');
+        setMessageType('error');
       }
     } catch (error) {
       setMessage('An error occurred. Please try again later.');
+      setMessageType('error');
     }
+
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -45,6 +62,10 @@ const Login = () => {
       ...prevCredentials,
       [name]: value,
     }));
+  };
+
+  const handleCloseSnackbar = () => {
+    setMessage('');
   };
 
   return (
@@ -94,22 +115,22 @@ const Login = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container justifyContent="center">
-                  <Button type="submit" variant="contained" fullWidth>
-                    Sign In
+                  <Button type="submit" variant="contained" fullWidth disabled={loading}>
+                    {loading ? 'Loading...' : 'Sign In'}
                   </Button>
                 </Grid>
               </Grid>
-              {message && (
-                <Grid item xs={12}>
-                  <Typography color="error" variant="body2">
+              <Grid item xs={12}>
+                <Snackbar open={Boolean(message)} autoHideDuration={5000} onClose={handleCloseSnackbar}>
+                  <Alert onClose={handleCloseSnackbar} severity={messageType}>
                     {message}
-                  </Typography>
-                </Grid>
-              )}
+                  </Alert>
+                </Snackbar>
+              </Grid>
               <Grid item xs={12} sx={{ mt: 2 }}>
                 <Grid container spacing={1}>
                   <Grid item xs>
-                    <Link href="#" variant="body2">
+                    <Link href="/reset-password" variant="body2">
                       Forgot password?
                     </Link>
                   </Grid>

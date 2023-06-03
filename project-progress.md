@@ -1,9 +1,22 @@
-## Documentation of Progress:
+## Currently working on
+"As a user, I want to be able to reset my password, so that I can regain access to my account if needed":
 
-1. Implemented Registration Functionality:
-   - Spent considerable time getting the registration feature to work.
-   - Successfully implemented user registration using Firebase authentication.
-   - Users can now create an account with a username, email, and password.
+- ~~Add a "Forgot Password" link/button on the login page.~~
+- ~~Create a new page or modal for the password reset process.~~
+- ~~Implement a form for users to enter their email address for password reset.~~
+- Validate the email address entered by the user.
+- Generate a unique reset token for the user and associate it with their account.
+- Send an email to the user's email address with a link containing the reset token.
+- Create a route or endpoint to handle the password reset link.
+- Verify the reset token and ensure it is still valid.
+- Present a form for the user to enter and confirm their new password.
+- Validate the new password for complexity and length requirements.
+- Hash and securely store the new password in the database.
+- Update the user's account with the new password.
+- Display a success message to the user indicating that their password has been reset.
+- Redirect the user to the login page or provide a link to log in again.
+
+## Documentation of Progress:
 
 2. Material-UI Styling:
    - Implemented basic Material-UI styling for the project.
@@ -28,7 +41,6 @@
 ## Next Steps:
 
 1. Implement Logged-In User Features:
-   - Update the Dashboard component to display a personalized welcome message using the user's name from MongoDB.
    - Implement user-specific functionalities, such as displaying user-specific data or providing access to user-specific settings.
 
 2. Refine Backlog and Reprioritize Tasks:
@@ -45,70 +57,51 @@ By focusing on these priorities, refining the backlog, and integrating the Berry
 
 ## Additional TODOs:
 
-- SECURITY:
-  // TODO: Revisit the credentials in the open and solve the .env bug preventing credentials from being properly hidden or protected
+- Implement improved dashboard templating:
+  - Refactor existing dashboard component into smaller reusable components:
+    - Create separate components for header, sidebar, and main content
+    - Break down main content into smaller components based on functionality
+  - Implement responsive design for different screen sizes
+  - Apply appropriate styling and CSS classes for consistent layout
 
-- dashboard.js:
-  // TODO: Fetch the user's name and list of cards from the backend/database
+- Fetch the user's name:
+  - Create an API endpoint to retrieve user data from the backend
+  - Implement a function to make a GET request to the user endpoint
+  - Store the user's name in the component's state or context
 
-- newCard.js:
-  // TODO: Send the hazard to the GPT API and save the response in the database
+- Fetch the user's list of cards:
+  - Create an API endpoint to retrieve the list of cards associated with the user
+  - Implement a function to make a GET request to the cards endpoint
+  - Store the list of cards in the component's state or context
 
-- review.js:
-  // TODO: Replace the placeholder data with the actual suggestions from the GPT API
-  // TODO: Save the selected suggestions in the database and update the Bow Tie Card
+- Write a completed /about page:
+  - Create a new route for the /about page in the server
+  - Design and structure the about page content
+  - Add relevant information about the project, its purpose, and goals
+  - Include team members' profiles and their contributions
+  - Format and style the page using appropriate CSS classes and styles
 
-- visualise.js:
-  // TODO: Fetch the confirmed Bow Tie Card data from the database
-  // TODO: Replace this placeholder with actual visualization code
+- Write a completed /faq page:
+  - Create a new route for the /faq page in the server
+  - Design and structure the FAQ page content
+  - Compile a list of frequently asked questions and their answers
+  - Organize the questions and answers into sections or categories
+  - Apply appropriate formatting and styling to enhance readability
 
-- BRANDING:
-// TODO: Design and create a logo for the project
-// TODO: Set the favicon for the website
+- Write a completed /contact page:
+  - Create a new route for the /contact page in the server
+  - Design and structure the contact page content
+  - Include a contact form or contact information for users to reach out
+  - Implement form validation and handling of user submissions
+  - Apply appropriate styling and formatting for a user-friendly interface
 
-- STYLING:
-// TODO: Refine the overall styling and layout of the application
-// TODO: Add custom CSS or themes to enhance the visual appeal
+- Refactor "Fetch the user's name and list of cards..." into two TODOs:
+  - Fetch the user's name:
+    - Create an API endpoint to retrieve user data from the backend
+    - Implement a function to make a GET request to the user endpoint
+    - Store the user's name in the component's state or context
+  - Fetch the user's list of cards:
+    - Create an API endpoint to retrieve the list of cards associated with the user
+    - Implement a function to make a GET request to the cards endpoint
+    - Store the list of cards in the component's state or context
 
-- RESPONSIVENESS:
-// TODO: Ensure the application is fully responsive across different devices and screen sizes
-// TODO: Test and optimize the user experience on mobile devices
-
-- ACCESSIBILITY:
-// TODO: Improve accessibility by adding appropriate ARIA attributes and ensuring proper keyboard navigation
-// TODO: Conduct accessibility testing and address any issues or recommendations
-
-- ERROR HANDLING:
-// TODO: Implement proper error handling and error messages throughout the application
-// TODO: Create a consistent and user-friendly error handling strategy
-
-- PERFORMANCE:
-// TODO: Optimize the performance of the application, including code bundling, caching, and lazy loading
-// TODO: Conduct performance testing and identify areas for improvement
-
-- TESTING:
-// TODO: Write unit tests to cover critical components and functionality
-// TODO: Implement automated testing and continuous integration processes
-// TODO: Perform thorough testing and debugging to ensure the application functions as expected
-
-- DOCUMENTATION:
-// TODO: Create comprehensive documentation for the project, including installation instructions, usage guidelines, and API documentation
-// TODO: Document the project structure, file organization, and code conventions for future reference
-
-- SECURITY:
-// TODO: Implement proper authentication and authorization mechanisms
-// TODO: Address any potential security vulnerabilities identified during testing
-// TODO: Regularly update dependencies and apply security patches
-
-- PERFORMANCE OPTIMIZATION:
-// TODO: Identify and optimize any bottlenecks in the application's performance
-// TODO: Implement caching and data storage strategies to improve speed and efficiency
-
-- DEPLOYMENT:
-// TODO: Set up a production-ready deployment environment
-// TODO: Configure CI/CD pipelines for automated deployment and updates
-// TODO: Secure the deployment environment and ensure proper monitoring and logging
-
-- SEO:
-// TODO: Implement search engine optimization techniques to improve the website's visibility in search engine rankings
-// TODO: Add appropriate meta tags and structured data to enhance search engine indexing

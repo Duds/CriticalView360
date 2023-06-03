@@ -1,7 +1,5 @@
-// ./client/src/firebase.js
-
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import axios from 'axios';
 
 // Your web app's Firebase configuration
@@ -28,7 +26,7 @@ export const register = async ({ username, email, password }) => {
     return true;
   } catch (error) {
     console.error('Registration Error:', error);
-    return false;
+    throw new Error('Failed to register. Please try again.'); // Custom error message
   }
 };
 
@@ -38,6 +36,17 @@ export const login = async ({ email, password }) => {
     return true;
   } catch (error) {
     console.error('Login Error:', error);
-    return false;
+    throw new Error('Failed to login. Please check your credentials.'); // Custom error message
+  }
+};
+
+export const resetPassword = async (email) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    // Password reset email sent successfully
+    // You can perform additional actions or display a success message if needed
+  } catch (error) {
+    console.error('Password Reset Error:', error);
+    throw new Error('Failed to send password reset email. Please try again.'); // Custom error message
   }
 };

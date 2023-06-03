@@ -14,6 +14,7 @@ import TermsOfService from './components/TermsOfService';
 import About from './components/About';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
+import PasswordReset from './components/PasswordReset';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/reset-password" element={<PasswordReset />} />
       </Routes>
     </Router>
   );
