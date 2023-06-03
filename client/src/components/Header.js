@@ -18,7 +18,7 @@ const Header = () => {
 
   const logout = () => {
     signOut(auth).then(() => {
-      window.location.href = '/login';
+      window.location.href = '/';
     });
   };
 
