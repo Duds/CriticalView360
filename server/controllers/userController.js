@@ -14,21 +14,38 @@ const registerUser = async (req, res) => {
     const user = new User({
       username,
       email,
-      password, // Store the password directly
-      uid, // Store the user's Firebase Auth UID
+      uid,
     });
 
     await user.save();
 
     console.log('User registered:', user);
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully", user: { uid: user.uid, username: user.username } });
   } catch (error) {
     console.error('User Registration Error:', error);
     res.status(500).json({ message: "Something went wrong" });
   }
 };
 
+const getUserDataByUID = async (req, res) => {
+  const { uid } = req.params;
+
+  try {
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ user });
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
 module.exports = {
   registerUser,
+  getUserDataByUID,
 };
