@@ -1,28 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Typography, Button, Container, Grid } from '@mui/material';
+import { Typography, Button, Container, Grid, CircularProgress } from '@mui/material';
 import Header from './Header';
 import Footer from './Footer';
+import { auth } from '../firebase';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
-  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Replace this with your actual user ID
-    const userId = 'your-user-id';
+    const fetchUserData = async () => {
+      try {
+        const user = auth.currentUser;
 
-    // Replace this with your actual API endpoint
-    const apiEndpoint = `http://localhost:3000/api/user/${userId}`;
-
-    axios.get(apiEndpoint)
-      .then(response => {
-        setUserData(response.data.user);
-        setCards(response.data.cards);
-      })
-      .catch(error => {
+        if (user) {
+          const userId = user.uid;
+          const apiEndpoint = `http://localhost:3000/api/user/${userId}`;
+          const response = await axios.get(apiEndpoint);
+          setUserData(response.data.user);
+        }
+      } catch (error) {
         console.error('Error fetching data: ', error);
-      });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
   }, []);
 
   return (
@@ -32,20 +37,25 @@ const Dashboard = () => {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Typography variant="h1" component="h1" align="center" gutterBottom>
-              Welcome, {userData ? userData.name : 'User'}!
+              Welcome, {userData && userData.username ? userData.username : 'User'}!
             </Typography>
-            <Button variant="contained" color="primary">Create New Bow Tie Card</Button>
+            <Button variant="contained" color="primary">
+              Create New Bow Tie Card
+            </Button>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h2" component="h2" gutterBottom>
-              Your Bow Tie Cards
-            </Typography>
-            {cards.map(card => (
-              <div key={card.id}>
-                <Typography variant="h3" component="h3" gutterBottom>{card.name}</Typography>
-                <Typography variant="body1" component="p">Last updated: {card.lastUpdated}</Typography>
-              </div>
-            ))}
+            {loading ? (
+              <CircularProgress /> // Display a loading indicator while fetching data
+            ) : (
+              <>
+                <Typography variant="h2" component="h2" gutterBottom>
+                  Your Bow Tie Cards
+                </Typography>
+                <Typography variant="body1" component="p">
+                  No bow tie cards found.
+                </Typography>
+              </>
+            )}
           </Grid>
         </Grid>
       </Container>
