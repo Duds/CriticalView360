@@ -1,3 +1,5 @@
+// ./client/src/firebase.js
+
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import axios from 'axios';

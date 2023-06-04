@@ -4,6 +4,7 @@
 - ~~Add a "Forgot Password" link/button on the login page.~~
 - ~~Create a new page or modal for the password reset process.~~
 - ~~Implement a form for users to enter their email address for password reset.~~
+- Check the ./serviceAccountKey.json for security. Should it be in the clear or should it be a variable in .env.
 - Validate the email address entered by the user.
 - Generate a unique reset token for the user and associate it with their account.
 - Send an email to the user's email address with a link containing the reset token.

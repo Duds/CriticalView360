@@ -1,7 +1,7 @@
-// authentication.js
+// /server/controllers/authentication.js
 
 const User = require('../models/user');
-
+const admin = require('../utils/firebaseAdmin');
 
 const registerUser = async (req, res) => {
   console.log('Received user registration data:', req.body);
@@ -29,10 +29,6 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = {
-  registerUser,
-};
-
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -53,7 +49,21 @@ const loginUser = async (req, res) => {
   }
 };
 
+const sendPasswordResetEmail = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    await admin.auth().sendPasswordResetEmail(email);
+
+    res.status(200).json({ message: 'Password reset email sent successfully.' });
+  } catch (error) {
+    console.error('Error sending password reset email:', error);
+    res.status(500).json({ message: 'Failed to send password reset email. Please try again.' });
+  }
+};
+
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  sendPasswordResetEmail
 };
