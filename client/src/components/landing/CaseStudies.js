@@ -1,25 +1,31 @@
-// ./client/src/components/landing/News.js
+// ./client/src/components/landing/CaseStudies.js
 
 import React from 'react';
-import { Typography, Grid, Card, CardContent, Button } from '@mui/material';
+import { Typography, Grid, Card, CardMedia, CardContent, Button } from '@mui/material';
 
-const News = ({ newsArticles }) => {
+const CaseStudies = ({ caseStudies }) => {
   return (
-    <section className="news-section">
+    <section className="case-studies">
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h3" color="textPrimary">
-            Latest News
+            Success Stories
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Card>
+            <CardMedia
+              component="img"
+              alt="Case Study 1"
+              height="140"
+              image="case_study1_image_placeholder.jpg"
+            />
             <CardContent>
               <Typography variant="h5" color="textPrimary">
-                News Article 1
+                Case Study 1
               </Typography>
               <Typography variant="body1" color="textSecondary">
-                Read about our latest product updates and how they're revolutionizing risk management.
+                Discover how our Critical Controls theory SaaS application helped Company A revolutionize their risk management process.
               </Typography>
               <Button variant="outlined" color="primary">
                 Read More
@@ -29,12 +35,18 @@ const News = ({ newsArticles }) => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Card>
+            <CardMedia
+              component="img"
+              alt="Case Study 2"
+              height="140"
+              image="case_study2_image_placeholder.jpg"
+            />
             <CardContent>
               <Typography variant="h5" color="textPrimary">
-                News Article 2
+                Case Study 2
               </Typography>
               <Typography variant="body1" color="textSecondary">
-                See what industry experts are saying about our approach to risk management.
+                Learn how Company B transformed their approach to risk management using our application, achieving substantial reductions in incidents.
               </Typography>
               <Button variant="outlined" color="primary">
                 Read More
@@ -47,4 +59,4 @@ const News = ({ newsArticles }) => {
   );
 };
 
-export default News;
+export default CaseStudies;

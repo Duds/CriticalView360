@@ -6,6 +6,7 @@ import Hero from './Hero';
 import Benefits from './Benefits';
 import Features from './Features';
 import Trust from './Trust';
+import CaseStudies from './CaseStudies'
 import News from './News';
 
 const Landing = () => {
@@ -19,6 +20,7 @@ const Landing = () => {
         <Benefits />
         <Features />
         <Trust />
+        <CaseStudies />
         <News />
       </main>
 

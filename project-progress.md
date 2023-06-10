@@ -21,8 +21,13 @@
    - [x] Install the necessary packages and dependencies for Material-UI.
    - [x] Configure the project to use Material-UI components and styles.
 
-2. [ ] Refactoring client side components.
-   -  [ ] 
+2. [x] Refactoring client side components.
+   -  [x] Refactor Landing component
+   -  [x] Chunk up Landing component into smaller components (Hero, Benefits, Features, Trust, News)
+   -  [x] Create subfolders in the `./components` directory (auth, common, dashboard, landing, pages)ß
+   -  [x] Move relevant components into their respective subfolders
+   -  [x] Update import paths in affected files to reflect the new folder structure
+   -  [x] Teßst and ensure the refactored components function correctly
 
 2. [ ] Apply Material-UI styling to components:
    - [ ] Apply Material-UI styles to the Landing component.

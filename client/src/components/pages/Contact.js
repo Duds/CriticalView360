@@ -1,17 +1,34 @@
-import React from 'react';
-import { Container, Typography } from '@mui/material';
+// ./client/src/components/pages/Contact.js
 
-const Contact = () => {
+import React from 'react';
+import { Typography, TextField, Button, Grid } from '@mui/material';
+
+const ContactForm = () => {
   return (
-    <Container maxWidth="md">
-      <Typography variant="h2" component="h1" align="center" gutterBottom>
-        Contact Us
+    <section id="contact-form-section">
+      <Typography variant="h3" color="textPrimary">
+        Get In Touch
       </Typography>
-      <Typography variant="body1" component="p" align="justify">
-        Add your contact information and form here...
-      </Typography>
-    </Container>
+      <form>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <TextField fullWidth label="Your Name" variant="outlined" />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField fullWidth label="Email Address" variant="outlined" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField fullWidth label="Message" variant="outlined" multiline rows={4} />
+          </Grid>
+          <Grid item xs={12}>
+            <Button variant="contained" color="primary" type="submit">
+              Send Message
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </section>
   );
 };
 
-export default Contact;
+export default ContactForm;
