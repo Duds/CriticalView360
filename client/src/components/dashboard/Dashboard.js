@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Typography, Button, Container, Grid, CircularProgress } from '@mui/material';
-import Header from './Header';
-import Footer from './Footer';
-import { auth } from '../firebase';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
+import { auth } from '../../firebase';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);

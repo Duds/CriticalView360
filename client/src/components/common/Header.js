@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 const Header = () => {
   const [user, setUser] = useState(null);

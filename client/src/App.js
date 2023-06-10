@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import Landing from './components/Landing';
-import Register from './components/Register';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import NewCard from './components/NewCard';
-import Review from './components/Review';
-import Visualise from './components/Visualise';
-import NotFound from './components/NotFound';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
-import About from './components/About';
-import Contact from './components/Contact';
-import FAQ from './components/FAQ';
-import PasswordReset from './components/PasswordReset';
+import Landing from './components/landing/Landing';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Dashboard from './components/dashboard/Dashboard';
+import NewCard from './components/dashboard/NewCard';
+import Review from './components/dashboard/Review';
+import Visualise from './components/dashboard/Visualise';
+import NotFound from './components/pages/NotFound';
+import PrivacyPolicy from './components/pages/PrivacyPolicy';
+import TermsOfService from './components/pages/TermsOfService';
+import About from './components/pages/About';
+import Contact from './components/pages/Contact';
+import FAQ from './components/pages/FAQ';
+import PasswordReset from './components/auth/PasswordReset';
 
 function App() {
   return (
@@ -32,8 +32,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/reset-password" element={<PasswordReset />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

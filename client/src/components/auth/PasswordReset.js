@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../firebase';
+import { resetPassword } from '../../firebase';
 import {
   Container,
   Typography,
@@ -13,25 +12,23 @@ import {
   Snackbar,
 } from '@mui/material';
 import { Alert } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockResetIcon from '@mui/icons-material/LockReset';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const defaultTheme = createTheme();
 
-const Login = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+const PasswordReset = () => {
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('success');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = credentials;
 
-    if (!email || !password) {
-      setMessage('Please enter your email and password.');
+    if (!email) {
+      setMessage('Please enter your email address.');
       setMessageType('error');
       return;
     }
@@ -39,17 +36,11 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const success = await login({ email, password });
-      if (success) {
-        setMessage('Login successful!');
-        setMessageType('success');
-        navigate('/dashboard'); // Replace with the desired page
-      } else {
-        setMessage('Login failed. Please try again.');
-        setMessageType('error');
-      }
+      await resetPassword(email);
+      setMessage('Password reset email sent!');
+      setMessageType('success');
     } catch (error) {
-      setMessage('An error occurred. Please try again later.');
+      setMessage('Failed to send password reset email. Please try again.');
       setMessageType('error');
     }
 
@@ -57,11 +48,7 @@ const Login = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials((prevCredentials) => ({
-      ...prevCredentials,
-      [name]: value,
-    }));
+    setEmail(e.target.value);
   };
 
   const handleCloseSnackbar = () => {
@@ -81,10 +68,10 @@ const Login = () => {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockResetIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign In
+            Reset Password
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -96,27 +83,14 @@ const Login = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  value={credentials.email}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  value={credentials.password}
+                  value={email}
                   onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <Grid container justifyContent="center">
                   <Button type="submit" variant="contained" fullWidth disabled={loading}>
-                    {loading ? 'Loading...' : 'Sign In'}
+                    {loading ? 'Loading...' : 'Reset Password'}
                   </Button>
                 </Grid>
               </Grid>
@@ -130,8 +104,8 @@ const Login = () => {
               <Grid item xs={12} sx={{ mt: 2 }}>
                 <Grid container spacing={1}>
                   <Grid item xs>
-                    <Link href="/reset-password" variant="body2">
-                      Forgot password?
+                    <Link href="/login" variant="body2">
+                      Return to Login
                     </Link>
                   </Grid>
                   <Grid item>
@@ -149,4 +123,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default PasswordReset;

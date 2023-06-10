@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { register } from '../firebase';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../../firebase';
 import {
   Container,
   Typography,
@@ -8,29 +9,29 @@ import {
   Grid,
   Box,
   Avatar,
-  CssBaseline,
-  Snackbar,
   Link,
+  Snackbar,
 } from '@mui/material';
 import { Alert } from '@mui/material';
-import { AppRegistration } from '@mui/icons-material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const defaultTheme = createTheme();
 
-const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = () => {
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('success');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { email, password } = credentials;
 
-    if (!name || !email || !password) {
-      setMessage('Please fill in all fields.');
+    if (!email || !password) {
+      setMessage('Please enter your email and password.');
       setMessageType('error');
       return;
     }
@@ -38,14 +39,13 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const success = await register({ name, email, password });
-
+      const success = await login({ email, password });
       if (success) {
-        setMessage('Registration successful!');
+        setMessage('Login successful!');
         setMessageType('success');
-        // Redirect or perform any necessary action
+        navigate('/dashboard'); // Replace with the desired page
       } else {
-        setMessage('Registration failed. Please try again.');
+        setMessage('Login failed. Please try again.');
         setMessageType('error');
       }
     } catch (error) {
@@ -54,6 +54,14 @@ const Register = () => {
     }
 
     setLoading(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
   };
 
   const handleCloseSnackbar = () => {
@@ -73,50 +81,42 @@ const Register = () => {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <AppRegistration />
+            <LockOutlinedIcon />
           </Avatar>
-          <Typography variant="h5" component="h1" align="center">
-            Register
+          <Typography component="h1" variant="h5">
+            Sign In
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  fullWidth
-                  label="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  name="name"
-                  placeholder="Enter your name here..."
                   required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={credentials.email}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  type="email"
-                  label="Email"
-                  fullWidth
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your Email here..."
                   required
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  type="password"
+                  fullWidth
+                  name="password"
                   label="Password"
-                  fullWidth
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter a password here..."
-                  required
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={credentials.password}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <Grid container justifyContent="center">
                   <Button type="submit" variant="contained" fullWidth disabled={loading}>
-                    {loading ? 'Loading...' : 'Register'}
+                    {loading ? 'Loading...' : 'Sign In'}
                   </Button>
                 </Grid>
               </Grid>
@@ -128,10 +128,17 @@ const Register = () => {
                 </Snackbar>
               </Grid>
               <Grid item xs={12} sx={{ mt: 2 }}>
-                <Grid container justifyContent="center">
-                  <Link href="/login" variant="body2">
-                    Already have an account? Sign in
-                  </Link>
+                <Grid container spacing={1}>
+                  <Grid item xs>
+                    <Link href="/reset-password" variant="body2">
+                      Forgot password?
+                    </Link>
+                  </Grid>
+                  <Grid item>
+                    <Link href="/register" variant="body2">
+                      Don't have an account? Sign Up
+                    </Link>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
@@ -142,4 +149,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
