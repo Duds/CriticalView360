@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Typography, Container, Grid, Box } from '@mui/material';
 import Logo from './Logo';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
     <Box
       component="footer"

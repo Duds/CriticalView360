@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { auth } from '../../firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { useTheme } from '@mui/material/styles';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { auth } from "../../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useTheme } from "@mui/material/styles";
+import Logo from "./Logo";
 
 const Header = () => {
-  const [user, setUser] = useState(null);
   const theme = useTheme();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -20,33 +20,51 @@ const Header = () => {
 
   const logout = () => {
     signOut(auth).then(() => {
-      window.location.href = '/';
+      window.location.href = "/";
     });
   };
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Logo style={{ height: '30px', marginRight: '10px' }} />
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, ...theme.schemes.light.textPrimary }}>
-          <Link to="/" style={{ textDecoration: 'none', color: theme.schemes.light.textPrimary }}>
-            CriticalView360
-          </Link>
-        </Typography>
-        {user ? (
-          <Button onClick={logout} sx={theme.schemes.light.textPrimary}>
-            Logout
-          </Button>
-        ) : (
-          <>
-            <Button component={Link} to="/register" sx={theme.schemes.light.textPrimary}>
-              Register
-            </Button>
-            <Button component={Link} to="/login" sx={theme.schemes.light.textPrimary}>
-              Login
-            </Button>
-          </>
-        )}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Logo isLoggedIn={user !== null} />
+          <Typography variant="h6" component="div" sx={{ marginLeft: "10px" }}>
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: theme.palette.text.primary,
+              }}
+            >
+              CriticalView360
+            </Link>
+          </Typography>
+        </Box>
+        <Box sx={{ marginLeft: "auto" }}>
+          {user ? (
+            <Button onClick={logout}>Logout</Button>
+          ) : (
+            <>
+              <Button
+                variant="text"
+                component={Link}
+                to="/login"
+                sx={{ marginLeft: "10px" }}
+              >
+                Login
+              </Button>
+              <Button
+                variant="contained"
+                component={Link}
+                to="/register"
+                sx={{ marginLeft: "10px" }}
+              >
+                Register
+              </Button>
+            </>
+          )}
+        </Box>
       </Toolbar>
     </AppBar>
   );

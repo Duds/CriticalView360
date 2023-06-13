@@ -1,31 +1,29 @@
-/* eslint-disable */
+import React from "react";
+import Header from "../common/Header";
+import Footer from "../common/Footer";
+import Hero from "./Hero";
+import Benefits from "./Benefits";
+import Features from "./Features";
+import Trust from "./Trust";
+import CaseStudies from "./CaseStudies";
+import News from "./News";
 
-import React from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
-import Hero from './Hero';
-import Benefits from './Benefits';
-import Features from './Features';
-import Trust from './Trust';
-import CaseStudies from './CaseStudies'
-import News from './News';
-
-const Landing = () => {
+const Landing = ({ theme }) => {
   return (
-    <div className="landing-container">
-      <Header />
+    <>
+      <Header theme={theme} />
 
       <main>
-        <Hero />
-        <Benefits />
-        <Features />
-        <Trust />
-        <CaseStudies />
-        <News />
+        <Hero theme={theme} />
+        <Benefits theme={theme} />
+        <Features theme={theme} />
+        <Trust theme={theme} />
+        <CaseStudies theme={theme} />
+        <News theme={theme} />
       </main>
 
-      <Footer />
-    </div>
+      <Footer theme={theme} />
+    </>
   );
 };
 

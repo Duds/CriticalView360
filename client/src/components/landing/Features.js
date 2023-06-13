@@ -1,21 +1,29 @@
-import React from 'react';
-import { Container, Typography, Grid, List, ListItem, ListItemIcon, ListItemText, Box } from '@mui/material';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import SecurityIcon from '@mui/icons-material/Security';
-import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PeopleIcon from '@mui/icons-material/People';
-import { useTheme } from '@mui/material/styles';
+import React from "react";
+import {
+  Container,
+  Typography,
+  Grid,
+  List,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+  Box,
+} from "@mui/material";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import SecurityIcon from "@mui/icons-material/Security";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import PeopleIcon from "@mui/icons-material/People";
 
-const Features = () => {
-  const theme = useTheme();
+const Features = ({ theme }) => {
 
   return (
     <section id="features-section">
       <Box py={3}>
         <Container maxWidth="lg">
           <Box mb={3}>
-            <Typography variant="h3" color="textPrimary" sx={theme.headingStyles.h3}>
+            <Typography variant="h3" color="textPrimary">
               Powerful Features at Your Fingertips
             </Typography>
           </Box>
@@ -24,21 +32,27 @@ const Features = () => {
               <Box mb={2}>
                 <List>
                   <ListItem>
-                    <ListItemIcon>
-                      <SecurityIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <SecurityIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Identify and categorize risks effectively with our intuitive platform." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <AssignmentTurnedInIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <AssignmentTurnedInIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Develop and assign mitigation steps to address identified risks." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <BarChartIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Monitor the implementation of risk mitigation measures with progress tracking capabilities." />
                   </ListItem>
                 </List>
@@ -48,21 +62,27 @@ const Features = () => {
               <Box mb={2}>
                 <List>
                   <ListItem>
-                    <ListItemIcon>
-                      <CheckCircleOutlineIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <CheckCircleOutlineIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Ensure compliance with industry standards and regulations for risk management." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <BarChartIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <BarChartIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Get robust reporting functionalities to demonstrate compliance and track risk management performance." />
                   </ListItem>
                   <ListItem>
-                    <ListItemIcon>
-                      <PeopleIcon />
-                    </ListItemIcon>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PeopleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
                     <ListItemText primary="Facilitate collaboration among team members for comprehensive risk management." />
                   </ListItem>
                 </List>

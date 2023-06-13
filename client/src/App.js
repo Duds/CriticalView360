@@ -1,8 +1,7 @@
-// ./client/src/App.js
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme'; // adjust the import path if needed
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import themeSettings from './theme';
+
 import 'typeface-inter';
 
 import './App.css';
@@ -21,6 +20,8 @@ import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import FAQ from './components/pages/FAQ';
 import PasswordReset from './components/auth/PasswordReset';
+
+const theme = createTheme(themeSettings);
 
 function App() {
   return (
