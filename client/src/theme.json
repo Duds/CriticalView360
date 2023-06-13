@@ -1,0 +1,410 @@
+{
+    "seed": "#008FD5",
+    "description": "TYPE: CUSTOM",
+    "coreColors": {
+      "primary": "#008FD5"
+    },
+    "schemes": {
+      "light": {
+        "primary": "#006496",
+        "onPrimary": "#FFFFFF",
+        "textPrimary": "rgba(0, 0, 0, 0.87)",
+        "primaryContainer": "#CCE5FF",
+        "onPrimaryContainer": "#001E31",
+        "primaryFixed": "#CCE5FF",
+        "onPrimaryFixed": "#001E31",
+        "primaryFixedDim": "#91CDFF",
+        "onPrimaryFixedVariant": "#004B72",
+        "secondary": "#50606F",
+        "onSecondary": "#FFFFFF",
+        "secondaryContainer": "#D4E4F6",
+        "onSecondaryContainer": "#0D1D2A",
+        "secondaryFixed": "#D4E4F6",
+        "onSecondaryFixed": "#0D1D2A",
+        "secondaryFixedDim": "#B8C8D9",
+        "onSecondaryFixedVariant": "#394856",
+        "tertiary": "#66587B",
+        "onTertiary": "#FFFFFF",
+        "tertiaryContainer": "#ECDCFF",
+        "onTertiaryContainer": "#211534",
+        "tertiaryFixed": "#ECDCFF",
+        "onTertiaryFixed": "#211534",
+        "tertiaryFixedDim": "#D1BFE7",
+        "onTertiaryFixedVariant": "#4E4162",
+        "error": "#BA1A1A",
+        "onError": "#FFFFFF",
+        "errorContainer": "#FFDAD6",
+        "onErrorContainer": "#410002",
+        "outline": "#72787E",
+        "background": "#FCFCFF",
+        "onBackground": "#1A1C1E",
+        "surface": "#F9F9FC",
+        "onSurface": "#1A1C1E",
+        "surfaceVariant": "#DEE3EB",
+        "onSurfaceVariant": "#42474E",
+        "inverseSurface": "#2F3133",
+        "inverseOnSurface": "#F0F0F4",
+        "inversePrimary": "#91CDFF",
+        "shadow": "#000000",
+        "surfaceTint": "#006496",
+        "outlineVariant": "#C2C7CE",
+        "scrim": "#000000",
+        "surfaceContainerHighest": "#E2E2E5",
+        "surfaceContainerHigh": "#E8E8EB",
+        "surfaceContainer": "#EDEEF1",
+        "surfaceContainerLow": "#F3F3F6",
+        "surfaceContainerLowest": "#FFFFFF",
+        "surfaceBright": "#F9F9FC",
+        "surfaceDim": "#D9DADD"
+      },
+      "dark": {
+        "primary": "#91CDFF",
+        "onPrimary": "#003350",
+        "primaryContainer": "#004B72",
+        "onPrimaryContainer": "#CCE5FF",
+        "primaryFixed": "#CCE5FF",
+        "onPrimaryFixed": "#001E31",
+        "primaryFixedDim": "#91CDFF",
+        "onPrimaryFixedVariant": "#004B72",
+        "secondary": "#B8C8D9",
+        "onSecondary": "#23323F",
+        "secondaryContainer": "#394856",
+        "onSecondaryContainer": "#D4E4F6",
+        "secondaryFixed": "#D4E4F6",
+        "onSecondaryFixed": "#0D1D2A",
+        "secondaryFixedDim": "#B8C8D9",
+        "onSecondaryFixedVariant": "#394856",
+        "tertiary": "#D1BFE7",
+        "onTertiary": "#372A4A",
+        "tertiaryContainer": "#4E4162",
+        "onTertiaryContainer": "#ECDCFF",
+        "tertiaryFixed": "#ECDCFF",
+        "onTertiaryFixed": "#211534",
+        "tertiaryFixedDim": "#D1BFE7",
+        "onTertiaryFixedVariant": "#4E4162",
+        "error": "#FFB4AB",
+        "onError": "#690005",
+        "errorContainer": "#93000A",
+        "onErrorContainer": "#FFDAD6",
+        "outline": "#8C9198",
+        "background": "#1A1C1E",
+        "onBackground": "#E2E2E5",
+        "surface": "#111416",
+        "onSurface": "#C6C6C9",
+        "surfaceVariant": "#42474E",
+        "onSurfaceVariant": "#C2C7CE",
+        "inverseSurface": "#E2E2E5",
+        "inverseOnSurface": "#1A1C1E",
+        "inversePrimary": "#006496",
+        "shadow": "#000000",
+        "surfaceTint": "#91CDFF",
+        "outlineVariant": "#42474E",
+        "scrim": "#000000",
+        "surfaceContainerHighest": "#333537",
+        "surfaceContainerHigh": "#282A2D",
+        "surfaceContainer": "#1E2022",
+        "surfaceContainerLow": "#1A1C1E",
+        "surfaceContainerLowest": "#0C0E11",
+        "surfaceBright": "#37393C",
+        "surfaceDim": "#111416"
+      }
+    },
+    "palettes": {
+      "primary": {
+        "0": "#000000",
+        "5": "#001221",
+        "10": "#001E31",
+        "20": "#003350",
+        "25": "#003F61",
+        "30": "#004B72",
+        "35": "#005784",
+        "40": "#006496",
+        "50": "#007EBC",
+        "60": "#1F98DF",
+        "70": "#4AB3FB",
+        "80": "#91CDFF",
+        "90": "#CCE5FF",
+        "95": "#E7F2FF",
+        "98": "#F7F9FF",
+        "99": "#FCFCFF",
+        "100": "#FFFFFF"
+      },
+      "secondary": {
+        "0": "#000000",
+        "5": "#03121F",
+        "10": "#0D1D2A",
+        "20": "#23323F",
+        "25": "#2E3D4B",
+        "30": "#394856",
+        "35": "#455463",
+        "40": "#50606F",
+        "50": "#697988",
+        "60": "#8392A3",
+        "70": "#9DADBE",
+        "80": "#B8C8D9",
+        "90": "#D4E4F6",
+        "95": "#E7F2FF",
+        "98": "#F7F9FF",
+        "99": "#FCFCFF",
+        "100": "#FFFFFF"
+      },
+      "tertiary": {
+        "0": "#000000",
+        "5": "#160A28",
+        "10": "#211534",
+        "20": "#372A4A",
+        "25": "#423556",
+        "30": "#4E4162",
+        "35": "#5A4C6E",
+        "40": "#66587B",
+        "50": "#807195",
+        "60": "#9A8AAF",
+        "70": "#B5A4CB",
+        "80": "#D1BFE7",
+        "90": "#ECDCFF",
+        "95": "#F8EDFF",
+        "98": "#FEF7FF",
+        "99": "#FFFBFF",
+        "100": "#FFFFFF"
+      },
+      "error": {
+        "0": "#000000",
+        "5": "#2D0001",
+        "10": "#410002",
+        "20": "#690005",
+        "25": "#7E0007",
+        "30": "#93000A",
+        "35": "#A80710",
+        "40": "#BA1A1A",
+        "50": "#DE3730",
+        "60": "#FF5449",
+        "70": "#FF897D",
+        "80": "#FFB4AB",
+        "90": "#FFDAD6",
+        "95": "#FFEDEA",
+        "98": "#FFF8F7",
+        "99": "#FFFBFF",
+        "100": "#FFFFFF"
+      },
+      "neutral": {
+        "0": "#000000",
+        "5": "#0F1113",
+        "10": "#1A1C1E",
+        "20": "#2F3133",
+        "25": "#3A3B3E",
+        "30": "#45474A",
+        "35": "#515255",
+        "40": "#5D5E61",
+        "50": "#76777A",
+        "60": "#8F9194",
+        "70": "#AAABAE",
+        "80": "#C6C6C9",
+        "90": "#E2E2E5",
+        "95": "#F0F0F4",
+        "98": "#F9F9FC",
+        "99": "#FCFCFF",
+        "100": "#FFFFFF"
+      },
+      "neutralVariant": {
+        "0": "#000000",
+        "5": "#0C1217",
+        "10": "#161C22",
+        "20": "#2B3137",
+        "25": "#363C42",
+        "30": "#42474E",
+        "35": "#4D5359",
+        "40": "#595F65",
+        "50": "#72787E",
+        "60": "#8C9198",
+        "70": "#A6ACB3",
+        "80": "#C2C7CE",
+        "90": "#DEE3EB",
+        "95": "#ECF1F9",
+        "98": "#F7F9FF",
+        "99": "#FCFCFF",
+        "100": "#FFFFFF"
+      }
+    },
+    "styles": {
+      "display": {
+        "large": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 57,
+          "lineHeight": 64,
+          "letterSpacing": -0.25
+        },
+        "medium": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 45,
+          "lineHeight": 52,
+          "letterSpacing": 0
+        },
+        "small": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 36,
+          "lineHeight": 44,
+          "letterSpacing": 0
+        }
+      },
+      "headline": {
+        "large": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 32,
+          "lineHeight": 40,
+          "letterSpacing": 0
+        },
+        "medium": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 28,
+          "lineHeight": 36,
+          "letterSpacing": 0
+        },
+        "small": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeight": 32,
+          "letterSpacing": 0
+        }
+      },
+      "body": {
+        "large": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 16,
+          "lineHeight": 24,
+          "letterSpacing": 0.5
+        },
+        "medium": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 14,
+          "lineHeight": 20,
+          "letterSpacing": 0.25
+        },
+        "small": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 12,
+          "lineHeight": 16,
+          "letterSpacing": 0.4000000059604645
+        }
+      },
+      "label": {
+        "large": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Medium",
+          "fontWeight": 500,
+          "fontSize": 14,
+          "lineHeight": 20,
+          "letterSpacing": 0.10000000149011612
+        },
+        "medium": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Medium",
+          "fontWeight": 500,
+          "fontSize": 12,
+          "lineHeight": 16,
+          "letterSpacing": 0.5
+        },
+        "small": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Medium",
+          "fontWeight": 500,
+          "fontSize": 11,
+          "lineHeight": 16,
+          "letterSpacing": 0.5
+        }
+      },
+      "title": {
+        "large": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Regular",
+          "fontWeight": 400,
+          "fontSize": 22,
+          "lineHeight": 28,
+          "letterSpacing": 0
+        },
+        "medium": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Medium",
+          "fontWeight": 500,
+          "fontSize": 16,
+          "lineHeight": 24,
+          "letterSpacing": 0.15000000596046448
+        },
+        "small": {
+          "fontFamilyName": "Inter",
+          "fontFamilyStyle": "Medium",
+          "fontWeight": 500,
+          "fontSize": 14,
+          "lineHeight": 20,
+          "letterSpacing": 0.10000000149011612
+        }
+      }
+    },
+    "extendedColors": [],
+    "headingStyles": {
+      "h1": {
+        "fontWeight": 800
+      },
+      "h2": {
+        "fontWeight": 800
+      },
+      "h3": {
+        "fontWeight": 800
+      },
+      "h4": {
+        "fontWeight": 600
+      },
+      "h5": {
+        "fontWeight": 500
+      },
+      "h6": {
+        "fontWeight": 400
+      }
+    },
+    "components": {
+      "MuiAppBar": {
+        "styleOverrides": {
+          "root": {
+            "&.MuiAppBar-colorPrimary": {
+              "backgroundColor": "transparent",
+              "color": "textPrimary",
+              "boxShadow": "none"
+            }
+          }
+        }
+      },
+      "MuiButton": {
+        "styleOverrides": {
+          "root": {
+
+          }
+        }
+      },
+      "MuiTypography": {
+        "styleOverrides": {
+          "root": {
+            "fontFamily": "Inter, sans-serif"
+          }
+        }
+      }
+    },
+    "name": "CriticalControls360"
+  }
+  

@@ -2,8 +2,11 @@
 
 import React from 'react';
 import { Container, Typography, Grid, Card, CardMedia, CardContent, Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const Benefits = () => {
+  const theme = useTheme();
+  
   return (
     <section id="benefits-section">
     <Box py={3}>
@@ -11,7 +14,7 @@ const Benefits = () => {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Box mb={2}>
-              <Typography variant="h3" color="textPrimary">
+              <Typography variant="h3" color="textPrimary" sx={theme.headingStyles.h3}>
                 Transform the Way You Manage Risk
               </Typography>
             </Box>
@@ -26,7 +29,7 @@ const Benefits = () => {
               />
               <CardContent>
                 <Box mb={1}>
-                  <Typography variant="h5" color="textPrimary">
+                  <Typography variant="h5" color="textPrimary" sx={theme.headingStyles.h5}>
                     Simplify Risk Management
                   </Typography>
                 </Box>
@@ -48,7 +51,7 @@ const Benefits = () => {
               />
               <CardContent>
                 <Box mb={1}>
-                  <Typography variant="h5" color="textPrimary">
+                  <Typography variant="h5" color="textPrimary" sx={theme.headingStyles.h5}>
                     Enhance Compliance
                   </Typography>
                 </Box>
@@ -70,7 +73,7 @@ const Benefits = () => {
               />
               <CardContent>
                 <Box mb={1}>
-                  <Typography variant="h5" color="textPrimary">
+                  <Typography variant="h5" color="textPrimary" sx={theme.headingStyles.h}>
                     Improve Collaboration
                   </Typography>
                 </Box>

@@ -1,6 +1,9 @@
+// ./client/src/App.js
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme'; // adjust the import path if needed
+import 'typeface-inter';
 
 import './App.css';
 

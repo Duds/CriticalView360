@@ -2,14 +2,17 @@
 
 import React from 'react';
 import { Container, Typography, Grid, Card, CardMedia, CardContent, Button, Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-const CaseStudies = ({ caseStudies }) => {
+const CaseStudies = () => {
+  const theme = useTheme();
+  
   return (
     <section className="case-studies">
     <Box py={3}>
     <Container maxWidth="lg">
       <Box mb={3}>
-        <Typography variant="h3" color="textPrimary">
+        <Typography variant="h3" color="textPrimary" sx={theme.headingStyles.h3}>
           Success Stories
         </Typography>
       </Box>
