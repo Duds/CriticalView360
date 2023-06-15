@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
-import logo from "../../assets/1F9D0.svg";
+import logo from "../../assets/CV360Logo.svg";
 
 const Logo = ({ isLoggedIn }) => {
   return (

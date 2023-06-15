@@ -1,15 +1,11 @@
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
-- [Currently working on](#currently-working-on)
 - [User Stories:](#user-stories)
 - [Task List:](#task-list)
 - [Acceptance Criteria:](#acceptance-criteria)
 - [Documentation of Progress:](#documentation-of-progress)
 - [Next Steps:](#next-steps)
 - [Additional TODOs:](#additional-todos)
-
-
-## Currently working on
 
 ## User Stories:
 
@@ -29,21 +25,50 @@
    -  [x] Update import paths in affected files to reflect the new folder structure
    -  [x] Teßst and ensure the refactored components function correctly
 
-2. [ ] Apply Material-UI styling to components:
-   - [ ] Apply Material-UI styles to the Landing component.
-   - [ ] Apply Material-UI styles to the Header component.
-   - [ ] Apply Material-UI styles to the Footer component.
-   - [ ] Apply Material-UI styles to the Register component.
-   - [ ] Apply Material-UI styles to the Login component.
-   - [ ] Apply Material-UI styles to the NotFound component.
+3. [x] Apply Material-UI styling to components:
+   - [x] Refactor Material-UI theming in Landing component:
+     - [x] Refactor Material-UI theming in Header component.
+     - [x] Refactor Material-UI theming in Hero component.
+     - [x] Refactor Material-UI theming in Benefits component.
+     - [x] Refactor Material-UI theming in CaseStudies component.
+     - [x] Refactor Material-UI theming in Features component.
+     - [x] Refactor Material-UI theming in News component.
+     - [x] Refactor Material-UI theming in Trust component.
+   - [x] Refactor Material-UI theming in Header component.
+   - [x] Refactor Material-UI theming in Footer component.
+   - [ ] Refactor Material-UI theming in Register component.
+   - [ ] Refactor Material-UI theming in Login component.
+   - [ ] Refactor Material-UI styles in NotFound component.
 
-3. [ ] Integrate Material-UI typography, buttons, forms, and layout components:
+4. [ ] Refactor Material-UI theming in Register component:
+   - [ ] Refactor Material-UI theming in Header component.
+   - [ ] Refactor Material-UI theming in Logo component.
+   - [ ] Refactor Material-UI theming in Typography component.
+
+5. [ ] Refactor Material-UI theming in Login component:
+   - [ ] Refactor Material-UI theming in Header component.
+   - [ ] Refactor Material-UI theming in Logo component.
+   - [ ] Refactor Material-UI theming in Typography component.
+
+6. [ ] Refactor Material-UI styles in NotFound component:
+   - [ ] Refactor Material-UI styles in Header component.
+   - [ ] Refactor Material-UI styles in Logo component.
+   - [ ] Refactor Material-UI styles in Typography component.
+
+7. [ ] Refactor Material-UI theming in About page.
+8. [ ] Refactor Material-UI theming in Contact page.
+9. [ ] Refactor Material-UI theming in FAQ page.
+10. [ ] Refactor Material-UI theming in PrivacyPolicy page.
+11. [ ] Refactor Material-UI theming in TermsOfService page.
+
+
+12. [ ] Integrate Material-UI typography, buttons, forms, and layout components:
    - [ ] Use Material-UI Typography component for consistent and visually appealing text styles.
    - [ ] Replace existing buttons with Material-UI Button component for a more interactive and styled look.
    - [ ] Implement Material-UI forms for a consistent and user-friendly input experience.
    - [ ] Utilize Material-UI layout components (Grid, Container, etc.) for responsive and structured page layouts.
 
-4. [ ] Test and refine the Material-UI styles:
+13. [ ] Test and refine the Material-UI styles:
    - [ ] Verify that the applied Material-UI styles are visually appealing and consistent across different components.
    - [ ] Test the responsiveness of the styles on different screen sizes and devices.
    - [ ] Refine and adjust the styles as needed to ensure a polished and professional appearance.

@@ -65,7 +65,10 @@
       "lineHeight": "1.5",
       "letterSpacing": "0.5px",
       "marginBottom": "24px"
-    }
+    },
+    "clampText": {
+      "fontSize": "clamp(24px, 3.33vw, 57px)"
+      }
   },
   "shape": {
     "borderRadius": 4

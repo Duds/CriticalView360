@@ -1,3 +1,30 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+@keyframes wobble-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-5deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(5deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.hilight-wrapper {
+  display: inline-block;
+}
+
+.hilight-text {
+  background-image: linear-gradient(155deg, #edac5b, #a22f2e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: wobble-rotate 3s infinite;
+}

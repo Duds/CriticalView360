@@ -31,11 +31,12 @@ const Header = () => {
           <Logo isLoggedIn={user !== null} />
           <Typography variant="h6" component="div" sx={{ marginLeft: "10px" }}>
             <Link
-              to="/"
+              to={user ? "/dashboard" : "/"}
               style={{
                 textDecoration: "none",
                 color: theme.palette.text.primary,
               }}
+              className="MuiLogotype" // Add the MuiLogotype class to apply the custom Logotype style
             >
               CriticalView360
             </Link>
